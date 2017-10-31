@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
 import {
-  AppRegistry,
+  Platform,
   StyleSheet,
   Text,
   View,
   Button
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
+
+const instructions = Platform.select({
+  ios: 'Press Cmd+R to reload,\n' +
+    'Cmd+D or shake for dev menu',
+  android: 'Double tap R on your keyboard to reload,\n' +
+    'Shake or press menu button for dev menu',
+});
 
 class Index extends Component {
   navigate(pageName,params){
@@ -23,8 +30,7 @@ class Index extends Component {
           To get started, edit index.ios.js
         </Text>
         <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
+          {instructions}
         </Text>
         <Button
           onPress={() => this.navigate('FindList')}
